@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" type="text/css" href="menu.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <p id="head" Align="center">Menu</p><br>
+<div class="container">
+    <div class="row">
+    <div class="col-sm-3">
+      <div class="block1">
+            <img src="assortment-milkshake-glasses-tray-with-chocolate-fruits.jpg">
+            
+            <div class="container2">
+              <div class="row2">
+                <div class="col-sm-3">
+                  <div class="block5">
+                      <p Align="center"><strong>JUICES</strong></p>
+                      <p>Orange juice,Apple juice,Mango juice,Butterfruit juice,lime</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="block2">
+           <img src="top-view-indian-dessert-arrangement.jpg">
+             <div class="row2">
+                <div class="col-sm-3">
+                  <div class="block6">
+                    <p Align="center"><strong>SWEETS</strong></p>
+                    <p>Peda,Gulab Jamun,Rasgulla,Jalebi,<br>Barfi,<br>Soan papdi</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+   
+    <div class="col-sm-3">
+      <div class="block3">
+        <img src="freshly-made-egg-salad-sandwich.jpg">
+        
+          <div class="row2">
+            <div class="col-sm-3">
+              <div class="block7">
+                <p Align="center"><strong>BREADS</strong></p>
+                <p>Baguette,Focaccia,Potato Bread,Ciabetta,Brioche,Rye bread,White bread </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <div class="col-sm-3">
+      <div class="block4">
+        <img src="khloe-arledge-ND3edEmzcdQ-unsplash (1).jpg">
+          <div class="row2">
+            <div class="col-sm-3">
+              <div class="block8">
+                <p Align="center"><strong>CURRIES</strong></p>
+                <p>Chicken curry,Mutton curry,Dal fry,Fish curry,Chutney,Sambar,Paneer curry</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+</div>
+</div>
+<div id="response" style="margin-top: 20px; text-align: center;"></div>
+<script src="script.js"></script>
+
+    <!-- JavaScript for speech recognition -->
+    <script>
+        // Check if browser supports Web Speech API
+        if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+            // Create a SpeechRecognition object
+            var recognition = new webkitSpeechRecognition || SpeechRecognition();
+
+            // Define settings for recognition
+            recognition.continuous = false;
+            recognition.lang = 'en-US';
+
+            // Start recognition
+            recognition.onstart = function() {
+                console.log('Speech recognition started');
+            };
+
+            // Process recognized speech
+            recognition.onresult = function(event) {
+                var transcript = event.results[0][0].transcript;
+                console.log('You said: ' + transcript);
+                // Process the command
+                processCommand(transcript);
+            };
+
+            // Start listening
+            recognition.start();
+        } else {
+            console.log('Speech recognition not supported');
+        }
+    </script>
+</body>
+</html>
